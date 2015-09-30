@@ -55,3 +55,23 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# ignore Eclipse files:
+.project
+.pydevproject
+
+# ignore MacOS crud:
+.DS_Store
+
+# Emacs files:
+# ignore emacs autosaves and other cruft:
+.~*
+*~*
+\#*\#
+.\#*
+
+#vim tmp files
+*.swp
+
+# Ignore unit test stuff:
+*test_files*
