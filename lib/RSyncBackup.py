@@ -87,7 +87,7 @@ class RSyncBackup:
 			self.backupStarted = time.gmtime()
 			return 1
 		
-	def backup (self, source, destination, archive = None, excludeList = None):
+	def backup (self, source, destination, archive = None, excludeList = None, includeList = None,):
 		""" Perform a backup using rsync.
 		
 			source 		- The source directory who's contents should be backed up.
@@ -117,6 +117,9 @@ class RSyncBackup:
 		if (excludeList is not None):
 			for exclude in excludeList:
 				cmnd = '%s --exclude="%s"' % (cmnd, exclude)
+		if (includeList is not None):
+			for include in includeList:
+				cmnd  = '%s --include="%s"' % (cmnd, include)
 		cmnd = "%s '%s' '%s'" % (cmnd, source, destination)
 		self.log.debug ("Running command: %s" % cmnd)
 		if (self.testRun):
